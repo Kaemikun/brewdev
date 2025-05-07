@@ -1,35 +1,57 @@
 
 # BrewDev
 
-**BrewDev** is a lightweight CLI tool to set up fullstack development environments easily. It now comes with a **menu-driven GUI installer** using `dialog` to make the process even smoother.
+**BrewDev** is a lightweight CLI tool to set up fullstack development environments easily. It features a **menu-driven GUI installer** using `dialog` for a smoother and interactive experience.
 
 ---
 
 ## 🛠 Installation (GUI Menu)
 
-To begin, run the following command:
+To begin the setup, run:
 
 ```bash
+---
 curl -s https://raw.githubusercontent.com/ManikLakhanpal/brewdev/main/install.sh | bash
-````
 
-> ✅ This will launch a **dialog-based GUI main menu** with the following options:
->
-> * **Install Fullstack**: Installs and sets up the complete fullstack environment.
-> * **Uninstall Fullstack**: Cleanly removes the fullstack setup created by BrewDev.
-> * **Exit**: Closes the installer menu.
+```
+✅ This will launch a dialog-based GUI main menu with the following options:
+
+* **Install Fullstack**: Installs and sets up the fullstack development environment.
+* **Uninstall Fullstack**: Removes everything set up by BrewDev.
+* **Exit**: Closes the installer.
+
+
+
+## ⚠️ Prerequisite: `dialog`
+
+The GUI requires the `dialog` package.
+
+If not already installed, install it manually:
+
+```bash
+# Debian/Ubuntu
+sudo apt-get update && sudo apt-get install -y dialog
+
+# Red Hat/Fedora
+sudo dnf install -y dialog
+
+# macOS (via Homebrew)
+brew install dialog
+```
+
+📦 On Debian-based systems, the installer will attempt to auto-install `dialog`.
 
 ---
 
-## ⚙️ Fullstack Setup (Manual)
+## ⚙️ Manual Fullstack Setup
 
-If needed, you can manually run the setup after installation using:
+You can manually run the setup after installation with:
 
 ```bash
 ./brewdev.sh setup fullstack
 ```
 
-This initializes the complete backend and frontend project structure in one step.
+This initializes both frontend and backend project structure.
 
 ---
 
@@ -38,12 +60,12 @@ This initializes the complete backend and frontend project structure in one step
 ```
 brewdev/
 ├── brewdev.sh                 # Main CLI tool
-├── install.sh                 # Launches GUI installer
-├── uninstall.sh               # (Optional direct uninstall entry)
+├── install.sh                 # GUI installer entry point
+├── uninstall.sh               # (Optional) direct uninstall
 ├── scripts/
-│   ├── gui.sh                 # Handles dialog-based GUI logic (called inside install.sh)
-│   ├── install_fullstack.sh   # Contains the fullstack installation steps
-│   └── uninstall_fullstack.sh # Contains the fullstack uninstallation steps
+│   ├── gui.sh                 # GUI logic using dialog
+│   ├── install_fullstack.sh   # Fullstack installation script
+│   └── uninstall_fullstack.sh # Fullstack uninstallation script
 ```
 
 ---
@@ -52,21 +74,21 @@ brewdev/
 
 * Bash
 * Git
-* `dialog` (auto-installed if missing)
+* `dialog` (required for GUI)
 
 ---
 
 ## 🔄 Uninstallation
 
-To uninstall via the GUI menu, simply re-run:
+To uninstall via GUI:
 
 ```bash
 curl -s https://raw.githubusercontent.com/ManikLakhanpal/brewdev/main/install.sh | bash
 ```
 
-And select **"Uninstall Fullstack"** from the menu.
+Then choose **"Uninstall Fullstack"** from the menu.
 
-Or, manually run:
+Or run directly:
 
 ```bash
 ./scripts/uninstall_fullstack.sh
@@ -76,12 +98,17 @@ Or, manually run:
 
 ## 🤝 Contributing
 
-Pull requests are welcome! Feel free to submit improvements, fixes, or feature suggestions.
+Pull requests are welcome! Please submit any ideas, improvements, or bug fixes.
 
 ---
 
 ## 📄 License
 
-MIT License  © Ansh Kaushal  © Manik LakhanPal  © Ankit  © Ketan Sharma
+MIT License
+© Ansh Kaushal
+© Manik Lakhanpal
+© Ankit
+© Ketan Sharma
 
-
+```
+```
